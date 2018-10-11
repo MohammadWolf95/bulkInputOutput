@@ -17,7 +17,7 @@ public:
     virtual void print_to_file(const std::string &str)=0;
     void print_obs();
     bool lock;
-    void remove_space(std::string &str);
+    //void remove_space(std::string &str);
 protected:
     Subject*model_sub;
     std::vector<std::string>m_vector;

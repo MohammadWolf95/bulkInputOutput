@@ -16,13 +16,12 @@ int main(int argc, char *argv[])
         Subject sub;
         BlockObserver b_obs(&sub, N);
         DynamicObserver d_obs(&sub);
-        bool first_cycle = true;
+        //bool first_cycle = true;
+        //sub.createFile(std::to_string(model_sub->get_fixed_time())+".log");
         while(getline(cin, str)){
-            if(first_cycle){
-                sub.createFile(to_string(sub.get_time())+".log");
-            }
+            sub.get_time();
             sub.set_str(str);
-            first_cycle = false;
+            //first_cycle = false;
         }
         sub.closeFile();
     }

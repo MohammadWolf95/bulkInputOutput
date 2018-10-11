@@ -24,4 +24,5 @@ HEADERS += \
     src/subject.h \
     src/observer.h \
     src/blockobserver.h \
-    src/dynamicobserver.h
+    src/dynamicobserver.h \
+    src/utils.h

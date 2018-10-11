@@ -1,14 +1,24 @@
-#include "subject.h"
+﻿#include "subject.h"
+#include "utils.h"
 
-void Subject::set_str(std::string str){
-    obs->remove_space(str);
+void Subject::set_str(std::string& str){
+    remove_space(str);
     if(str!="")
         obs->update(str);
 }
 
-void Subject::notyfy(){
-    for(auto&i:m_views){
-        i->switch_obs();
+void Subject::notyfy(){ //такой метод я просто скопировал из этой ссылки
+                        //http://cpp-reference.ru/patterns/behavioral-patterns/observer/
+                        //Пытался использовать паттерн observer. Но потом я что-то никак не
+                        //могу понять как такой паттерн использовать здесь
+    /*if(_outfile.is_open()){
+        closeFile();
+    }*/
+    //createFile(std::to_string(get_fixed_time())+".log");
+    for(auto&i:_views){
+        i->switch_obs();    //опять же я пытался использовать этот паттерн observer как по ссылке
+                            //выше. Для blockobserver он count делает равным 0,
+                            //а для dynamicobserver controle_str делает равным "{"
         if(i->lock)
             obs = i;
     }
@@ -18,13 +28,18 @@ size_t &Subject::get_time(){
     return _fixedTime = clock();
 }
 
+const size_t&Subject::get_fixed_time(){
+    return _fixedTime;
+}
+
 void Subject::createFile(std::string name){
-    outfile.open(name, std::fstream::in | std::fstream::out | std::fstream::app);
-    outfile<<"input | output"<<std::endl;
-    outfile<<"------|-------"<<std::endl;
+    closeFile();
+    _outfile.open(name, std::fstream::in | std::fstream::out | std::fstream::app);
+    _outfile<<"input | output"<<std::endl;
+    _outfile<<"------|-------"<<std::endl;
 }
 
 void Subject::closeFile(){
-    if(outfile.is_open())
-        outfile.close();
+    if(_outfile.is_open())
+        _outfile.close();
 }
