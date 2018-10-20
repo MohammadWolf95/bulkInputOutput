@@ -10,11 +10,12 @@ void Observer::print_obs(){
         if(it==m_vector.end()-1){
             str+=*it;
             std::cout<<str<<std::endl;
+            print_to_file(str);
         }
         else
             str+=(*it+", ");
     }
-    print_to_file(str);
+
     m_vector.clear();
 }
 

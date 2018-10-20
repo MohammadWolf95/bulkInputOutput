@@ -17,12 +17,14 @@ DEFINES += QT_DEPRECATED_WARNINGS
 SOURCES += src/main.cpp \
     src/subject.cpp \
     src/observer.cpp \
-    src/blockobserver.cpp \
-    src/dynamicobserver.cpp
+    src/fileoutput.cpp \
+    src/staticblock.cpp \
+    src/dynamicblock.cpp
 
 HEADERS += \
     src/subject.h \
     src/observer.h \
-    src/blockobserver.h \
-    src/dynamicobserver.h \
-    src/utils.h
+    src/utils.h \
+    src/fileoutput.h \
+    src/staticblock.h \
+    src/dynamicblock.h

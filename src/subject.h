@@ -10,8 +10,8 @@ class Observer;
 
 class Subject{
 public:
-    friend class BlockObserver;
-    friend class DynamicObserver;
+    friend class StaticBlock;
+    friend class DynamicBlock;
     void attach(Observer*obs){
         _views.emplace_back(obs);
     }

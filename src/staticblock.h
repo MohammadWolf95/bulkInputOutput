@@ -3,9 +3,9 @@
 
 #include "subject.h"
 
-class BlockObserver:public Observer{
+class StaticBlock:public Observer{
 public:
-    BlockObserver(Subject*model, size_t N)
+    StaticBlock(Subject*model, size_t N)
         :n_arg(N), count(0){
         model_sub = model;
         model_sub->obs = this;

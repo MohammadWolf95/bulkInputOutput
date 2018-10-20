@@ -3,9 +3,9 @@
 
 #include "subject.h"
 
-class DynamicObserver:public Observer{
+class DynamicBlock:public Observer{
 public:
-    DynamicObserver(Subject*model)
+    DynamicBlock(Subject*model)
         :controle_str("{"){
         model_sub = model;
         model_sub->attach(this);

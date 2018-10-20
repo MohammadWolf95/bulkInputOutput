@@ -52,3 +52,4 @@ void Subject::switch_obs(){
     else
         obs = _views.at(0);
 }
+

@@ -1,6 +1,6 @@
-#include "dynamicobserver.h"
+#include "dynamicblock.h"
 
-void DynamicObserver::update(const std::string str){
+void DynamicBlock::update(const std::string str){
     if(str == "{"){
 
         controle_str += str;
@@ -17,13 +17,13 @@ void DynamicObserver::update(const std::string str){
     }
 }
 
-void DynamicObserver::init(){
+void DynamicBlock::init(){
     controle_str = "{"; //Здесь я сохраняю скобку, потому что, когда мы вводим знак "{", то
                             //Subject::Observer*obs будет типа DynamicObserver, и поэтому мы заранее
                             //сохраняем эту скобку
 }
 
-void DynamicObserver::print_to_file(const std::string &str){
+void DynamicBlock::print_to_file(const std::string &str){
     auto &file = model_sub->_outfile;
     std::string tab = "\t\t|\n";
     file<<"{"+tab;

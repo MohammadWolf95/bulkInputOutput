@@ -1,6 +1,6 @@
-#include "blockobserver.h"
+#include "staticblock.h"
 
-void BlockObserver::update(const std::string str){
+void StaticBlock::update(const std::string str){
     if(str == "{"){
         print_obs();
         model_sub->createFile(std::to_string(model_sub->get_fixed_time())+".log");
@@ -27,11 +27,11 @@ void BlockObserver::update(const std::string str){
     }
 }
 
-void BlockObserver::init(){
+void StaticBlock::init(){
     count = 0;
 }
 
-void BlockObserver::print_to_file(const std::string &str){
+void StaticBlock::print_to_file(const std::string &str){
     auto &file = model_sub->_outfile;
     std::string tab = "\t\t|\n";
     for(auto i:m_vector){
