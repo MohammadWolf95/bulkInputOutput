@@ -11,7 +11,7 @@ public:
         model_sub->attach(this);
     }
     void update(const std::string str);
-    void switch_obs();
+    void init();
     void print_to_file(const std::string &str);
 private:
     std::string controle_str;

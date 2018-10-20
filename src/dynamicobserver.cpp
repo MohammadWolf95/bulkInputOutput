@@ -17,13 +17,10 @@ void DynamicObserver::update(const std::string str){
     }
 }
 
-void DynamicObserver::switch_obs(){
-    lock=!lock;
-    if(lock){
-        controle_str = "{"; //Здесь я сохраняю скобку, потому что, когда мы вводим знак "{", то
+void DynamicObserver::init(){
+    controle_str = "{"; //Здесь я сохраняю скобку, потому что, когда мы вводим знак "{", то
                             //Subject::Observer*obs будет типа DynamicObserver, и поэтому мы заранее
                             //сохраняем эту скобку
-    }
 }
 
 void DynamicObserver::print_to_file(const std::string &str){

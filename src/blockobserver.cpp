@@ -27,8 +27,7 @@ void BlockObserver::update(const std::string str){
     }
 }
 
-void BlockObserver::switch_obs(){
-    lock=!lock;
+void BlockObserver::init(){
     count = 0;
 }
 

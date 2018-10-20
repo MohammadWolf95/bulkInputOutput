@@ -27,6 +27,7 @@ private:
     void notyfy();
     size_t _fixedTime;
     std::ofstream _outfile;
+    void switch_obs();
 };
 
 #endif // SUBJECT_H

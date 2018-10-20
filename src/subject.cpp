@@ -15,13 +15,15 @@ void Subject::notyfy(){ //такой метод я просто скопиров
         closeFile();
     }*/
     //createFile(std::to_string(get_fixed_time())+".log");
-    for(auto&i:_views){
+    /*for(auto&i:_views){
         i->switch_obs();    //опять же я пытался использовать этот паттерн observer как по ссылке
                             //выше. Для blockobserver он count делает равным 0,
                             //а для dynamicobserver controle_str делает равным "{"
         if(i->lock)
             obs = i;
-    }
+    }*/
+    switch_obs();
+    obs->init();
 }
 
 size_t &Subject::get_time(){
@@ -42,4 +44,11 @@ void Subject::createFile(std::string name){
 void Subject::closeFile(){
     if(_outfile.is_open())
         _outfile.close();
+}
+
+void Subject::switch_obs(){
+    if(obs==_views.at(0))
+        obs = _views.at(1);
+    else
+        obs = _views.at(0);
 }
